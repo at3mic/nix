@@ -4,5 +4,6 @@
     wget
     fastfetch
     kdePackages.ksshaskpass
+    nixfmt
   ];
 }
