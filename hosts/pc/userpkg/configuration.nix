@@ -11,4 +11,11 @@
   programs.equibop = {
     enable = true;
   };
+
+  programs.vscode = {
+    enable = true;
+
+    mutableExtensionsDir = true;
+    profiles.default.userSettings = builtins.fromJSON (builtins.readFile ../../../configs/vscode-user.json);
+  };
 }
