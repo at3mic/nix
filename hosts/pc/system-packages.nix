@@ -3,7 +3,8 @@
     git
     wget
     fastfetch
-    kdePackages.ksshaskpass
     nixfmt
+    kdePackages.ksshaskpass
+    kdePackages.kate
   ];
 }
