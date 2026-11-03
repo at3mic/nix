@@ -11,9 +11,18 @@
       ./system-packages.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # Use the GRUB EFI boot loader.
+  boot.loader.systemd-boot.enable = false; # This is set to 'true' by default, hence why it's kept and set to false
+
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader.grub = {
+    enable = true;
+    efiSUpport = true;
+    device = "nodev";
+    efiInstallAsRemovable = true; # I have an MSI motherboard...
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
