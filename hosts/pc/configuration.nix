@@ -22,6 +22,7 @@
     efiSupport = true;
     device = "nodev";
     efiInstallAsRemovable = true; # I have an MSI motherboard...
+    useOSProber = true;
   };
 
   # Use latest kernel.
@@ -32,6 +33,22 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+
+    settings = {
+      General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+
+      Policy = {
+        AutoEnable = true;
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
