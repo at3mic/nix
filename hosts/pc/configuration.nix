@@ -120,6 +120,15 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Automatic updates
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/etc/nixos";
+    dates = "00:00";
+    persistent = true;
+    allowReboot = false;
+  }
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
