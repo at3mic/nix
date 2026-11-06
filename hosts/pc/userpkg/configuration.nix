@@ -10,6 +10,9 @@
 
   programs.equibop = {
     enable = true;
+
+    equicord.settings = builtins.fromJSON (builtins.readFile ../../../configs/equicord.json);
+    settings = builtins.fromJSON (builtins.readFile ../../../configs/equibop.json);
   };
 
   programs.vscode = {
