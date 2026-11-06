@@ -28,9 +28,11 @@
         # xkb "unlock happens on key release" delay never applies.
         capslock = macro(capslock)
 
-        control+shift+d = playpause
-        control+shift+s = next
-        control+shift+a = previous
+        # Modifier combos are composite layers in keyd, not `mod+key` bindings.
+        [control+shift]
+        d = playpause
+        s = nextsong
+        a = previoussong
       '';
     };
   };
