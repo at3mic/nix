@@ -23,8 +23,8 @@
     useOSProber = true;
   };
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Use CachyOS kernel.
+  boot.kernelPackages = inputs.cachyos-kernel.packages.${pkgs.system}.linux-cachyos-bore-lto;
 
   networking.hostName = "pc"; # Define your hostname.
 
