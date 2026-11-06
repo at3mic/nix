@@ -24,7 +24,7 @@
   };
 
   # Use CachyOS kernel.
-  boot.kernelPackages = inputs.cachyos-kernel.packages.${pkgs.system}.linux-cachyos-bore-lto;
+  boot.kernelPackages = inputs.cachy-kernel.legacyPackages.${pkgs.system}.linuxPackages-cachyos-bore-lto;
 
   networking.hostName = "pc"; # Define your hostname.
 
