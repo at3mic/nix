@@ -15,6 +15,10 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -34,6 +38,7 @@
               ./hosts/pc/userpkg/configuration.nix
               ./hosts/pc/userpkg/user-packages.nix
               inputs.spicetify.homeManagerModules.spicetify
+              inputs.plasma-manager.homeModules.plasma-manager
             ];
 
           _module.args = { inherit inputs; };

@@ -17,6 +17,32 @@
     settings = builtins.fromJSON (builtins.readFile ../../../configs/equibop.json);
   };
 
+  # Desktop theming: stock Breeze Dark base, the "Vencord" color scheme
+  # (Gruvbox Material palette, scheme file lives in configs/), a custom
+  # Gruvbox-green accent, and the wallhaven wallpaper.
+  programs.plasma = {
+    enable = true;
+
+    workspace = {
+      lookAndFeel = "org.kde.breezedark.desktop";
+      colorScheme = "Vencord";
+      wallpaper = ../../../configs/wallhaven-wyv9qx.jpg;
+    };
+
+    # plasma-apply-colorscheme (priority 1) resets the custom accent, so
+    # re-write it after the themes, before the wallpaper scripts (priority 3).
+    startup.startupScript."accent-color" = {
+      priority = 2;
+      text = ''
+        kwriteconfig6 --file kdeglobals --group KDE --key AccentColor 168,182,101
+        kwriteconfig6 --file kdeglobals --group KDE --key LastUsedCustomAccentColor 168,182,101
+        kwriteconfig6 --file kdeglobals --group General --key LastUsedCustomAccentColor 168,182,101
+      '';
+    };
+  };
+
+  xdg.dataFile."color-schemes/Vencord.colors".source = ../../../configs/Vencord.colors;
+
   programs.vscode = {
     enable = true;
 
