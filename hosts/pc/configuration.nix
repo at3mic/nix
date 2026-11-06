@@ -12,8 +12,6 @@
     ];
 
   # Use the GRUB EFI boot loader.
-  boot.loader.systemd-boot.enable = false; # This is set to 'true' by default, hence why it's kept and set to false
-
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = false;
 
@@ -29,11 +27,14 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "pc"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # I love proprietary software. <3
+  hardware.enableRedistributableFirmware = true;
+
+  # Enable bluetooth
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -49,6 +50,13 @@
       };
     };
   };
+
+  # NVIDIA stuff
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
+  hardware.nvidia.branch = "new_feature";
+  hardware.nvidia.modesetting.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -68,12 +76,8 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.plasma-login-manager.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
