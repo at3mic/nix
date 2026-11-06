@@ -119,6 +119,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Overlays
+  nixpkgs.overlays = [
+    inputs.cachy-kernel.overlays.pinned # Prevent NixOS from building kernel from source code
+  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Automatic updates
@@ -128,7 +133,7 @@
     dates = "00:00";
     persistent = true;
     allowReboot = false;
-  }
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

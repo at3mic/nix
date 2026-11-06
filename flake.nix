@@ -1,9 +1,14 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     cachy-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    spicetify.url = "github:Gerg-L/spicetify-nix";
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     helium = {
@@ -15,6 +20,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/pc/configuration.nix
 	      home-manager.nixosModules.home-manager
@@ -27,9 +33,11 @@
             imports = [
               ./hosts/pc/userpkg/configuration.nix
               ./hosts/pc/userpkg/user-packages.nix
+              inputs.spicetify.homeManagerModules.default
             ];
 
-            _module.args = { inherit inputs; };
+          _module.args = { inherit inputs; };
+          
           };
         }
       ];
