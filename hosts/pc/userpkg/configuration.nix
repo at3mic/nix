@@ -6,6 +6,7 @@
       user.name = "at3mic";
       user.email = "295322090+at3mic@users.noreply.github.com";
       safe.directory = "/etc/nixos";
+      credential.helper = "store"; # I like being dangerous
     };
   };
 

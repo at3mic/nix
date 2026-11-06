@@ -33,7 +33,7 @@
             imports = [
               ./hosts/pc/userpkg/configuration.nix
               ./hosts/pc/userpkg/user-packages.nix
-              inputs.spicetify.homeManagerModules.default
+              inputs.spicetify.homeManagerModules.spicetify
             ];
 
           _module.args = { inherit inputs; };
