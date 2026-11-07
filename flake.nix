@@ -22,7 +22,7 @@
     at3mic = {
       url = "github:at3mic/nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
