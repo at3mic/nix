@@ -27,14 +27,14 @@
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
     zlib
-    xorg.libX11
-    xorg.libXext
-    xorg.libXrender
-    xorg.libXrandr
-    xorg.libXi
-    xorg.libXcursor
-    xorg.libXinerama
-    xorg.libXxf86vm
+    libx11
+    libxext
+    libxrender
+    libxrandr
+    libxi
+    libxcursor
+    libxinerama
+    libxxf86vm
     libxcb
     libxkbcommon
     wayland

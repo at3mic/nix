@@ -59,6 +59,9 @@
   hardware.nvidia.branch = "new_feature";
   hardware.nvidia.modesetting.enable = true;
   boot.blacklistedKernelModules = [ "nouveau" ]; # NixOS wiki: This is done by default when using proprietary drivers
+  hardware.graphics.extraPackages = with pkgs; [
+    libglvnd
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
