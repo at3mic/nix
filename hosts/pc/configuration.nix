@@ -53,6 +53,7 @@
 
   # NVIDIA stuff
   hardware.graphics.enable = true;
+  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
   hardware.nvidia.branch = "new_feature";

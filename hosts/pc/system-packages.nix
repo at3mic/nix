@@ -7,8 +7,45 @@
     fastfetch
     nixfmt
     keyd
+    pciutils
     kdePackages.ksshaskpass
     kdePackages.kate
+
+    xorg.libX11
+    xorg.libXext
+    xorg.libXrender
+    xorg.libXrandr
+    xorg.libXi
+    xorg.libXcursor
+    xorg.libXinerama
+    xorg.libXxf86vm
+    libxcb
+  ];
+
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    xorg.libX11
+    xorg.libXext
+    xorg.libXrender
+    xorg.libXrandr
+    xorg.libXi
+    xorg.libXcursor
+    xorg.libXinerama
+    xorg.libXxf86vm
+    libxcb
+    libxkbcommon
+    wayland
+    mesa
+    alsa-lib
+    libpulseaudio
+  ];
+
+  environment.sessionVariables.LD_LIBRARY_PATH = [
+    "/run/opengl-driver/lib"
+    "/run/opengl-driver-32/lib"
   ];
 
   services.keyd = {
