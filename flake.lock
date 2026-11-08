@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "at3mic": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794129639,
+        "narHash": "sha256-QKe0S5bwJlzMosFpMOrpQ4kN1/5aPaQSOuq59dNfzzo=",
+        "owner": "at3mic",
+        "repo": "nixpkgs",
+        "rev": "7bbf933f1da54f16bc68ba4a1bcc0e709236545f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "at3mic",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "bun2nix": {
       "inputs": {
         "flake-parts": [
@@ -296,6 +316,7 @@
     },
     "root": {
       "inputs": {
+        "at3mic": "at3mic",
         "cachy-kernel": "cachy-kernel",
         "helium": "helium",
         "home-manager": "home-manager",
