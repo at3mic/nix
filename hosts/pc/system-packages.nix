@@ -8,17 +8,18 @@
     nixfmt
     keyd
     pciutils
+    jdk25_headless
     kdePackages.ksshaskpass
     kdePackages.kate
 
-    xorg.libX11
-    xorg.libXext
-    xorg.libXrender
-    xorg.libXrandr
-    xorg.libXi
-    xorg.libXcursor
-    xorg.libXinerama
-    xorg.libXxf86vm
+    libx11
+    libxext
+    libxrender
+    libxrandr
+    libxi
+    libxcursor
+    libxinerama
+    libxxf86vm
     libxcb
   ];
 
