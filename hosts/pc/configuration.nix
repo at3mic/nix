@@ -53,6 +53,7 @@
 
   # NVIDIA stuff
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
@@ -62,6 +63,9 @@
   hardware.graphics.extraPackages = with pkgs; [
     libglvnd
   ];
+
+  # Set up Steam udev rules
+  hardware.steam-hardware.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";

@@ -5,5 +5,6 @@
     inputs.llm-agents.packages.${pkgs.system}.opencode2
     pkgs.equibop
     pkgs.vscode
+    pkgs.steam
   ];
 }
