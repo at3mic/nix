@@ -132,7 +132,14 @@
     inputs.cachy-kernel.overlays.pinned # Prevent NixOS from building kernel from source code
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://cache.nixos.org/" "https://cache.lantian.pub/lantian" ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
+    ];
+  };
 
   # Automatic updates
   system.autoUpgrade = {
