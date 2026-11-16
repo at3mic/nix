@@ -9,7 +9,7 @@
       credential.helper = "store"; # I like being dangerous
     };
   };
-
+  
   programs.equibop = {
     enable = true;
 

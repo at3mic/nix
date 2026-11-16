@@ -23,6 +23,10 @@
       url = "github:at3mic/nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    powerofthe69 = {
+      url = "github:powerofthe69/nix-gaming-edge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

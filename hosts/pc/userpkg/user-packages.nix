@@ -5,6 +5,9 @@
     inputs.llm-agents.packages.${pkgs.system}.opencode2
     pkgs.equibop
     pkgs.vscode
-    pkgs.steam
+    (pkgs.steam.override {
+      extraEnv.STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+        "${inputs.powerofthe69.packages.${pkgs.system}.proton-cachyos-x86_64-v3.steamcompattool}";
+    })
   ];
 }
